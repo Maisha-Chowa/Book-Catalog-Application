@@ -16,7 +16,7 @@ import logo from "../assets/book-catalog-logo.png";
 export default function Navbar() {
   return (
     <nav className="w-full h-16 fixed top backdrop-blur-lg z-10">
-      <div className="h-full w-full bg-green-300">
+      <div className="h-full w-full bg-teal-300">
         <div className="flex items-center justify-between w-full md:max-w-7xl h-full mx-auto ">
           <div>
             <img className="h-12" src={logo} alt="logo" />
