@@ -6,7 +6,7 @@ const bookApi = api.injectEndpoints({
       query: () => "/books",
     }),
     singleBook: builder.query({
-      query: (id) => `/product/${id}`,
+      query: (id) => `/books/${id}`,
     }),
   }),
 });
