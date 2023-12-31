@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSingleBookQuery } from "../redux/features/Books/bookApi";
 import { IBook } from "../types/globalTypes";
 import { Button } from "../components/ui/button";
+import BookReview from "../components/BookReview";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -54,7 +55,7 @@ const BookDetails = () => {
           <Button className="bg-teal-300 rounded-xl">Add to Wishlist</Button>
         </div>
       </div>
-      {/* <ProductReview id={id!} /> */}
+      <BookReview id={id!} />
     </>
   );
 };
