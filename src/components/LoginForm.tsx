@@ -9,7 +9,7 @@ import { Label } from "../components/ui/label";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { loginUser } from "../redux/features/User/userSlice";
+import { loginUser, loginWithGoogle } from "../redux/features/User/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -36,6 +36,10 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
     console.log(data);
 
     dispatch(loginUser({ email: data.email, password: data.password }));
+  };
+
+  const handleGoogleLogin = () => {
+    dispatch(loginWithGoogle());
   };
 
   useEffect(() => {
@@ -89,6 +93,7 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
         variant="outline"
         type="button"
         className="flex items-center justify-between"
+        onClick={() => handleGoogleLogin()}
       >
         <p>Google</p>
         <FcGoogle />
