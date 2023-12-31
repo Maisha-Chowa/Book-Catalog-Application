@@ -9,7 +9,8 @@ import { Label } from "../components/ui/label";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { createUser, loginWithGoogle } from "../redux/features/User/userSlice";
-import { useAppDispatch } from "../redux/hook";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { useNavigate } from "react-router-dom";
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -26,7 +27,8 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
   } = useForm<SignupFormInputs>();
 
   const dispatch = useAppDispatch();
-
+  const { user, isLoading } = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
   const onSubmit = (data: SignupFormInputs) => {
     console.log(data);
     dispatch(createUser({ email: data.email, password: data.password }));
@@ -35,6 +37,12 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
   const handleGoogleLogin = () => {
     dispatch(loginWithGoogle());
   };
+
+  React.useEffect(() => {
+    if (user.email && !isLoading) {
+      navigate("/");
+    }
+  }, [user.email, isLoading]);
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
@@ -71,7 +79,7 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
             />
           </div>
-          <Button>Create Account</Button>
+          <Button className="bg-teal-300 p-5">Create Account</Button>
         </div>
       </form>
       <div className="relative">

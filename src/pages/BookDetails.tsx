@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSingleBookQuery } from "../redux/features/Books/bookApi";
-import { IBook } from "../types/globalTypes";
+
 import { Button } from "../components/ui/button";
 import BookReview from "../components/BookReview";
 
@@ -9,6 +9,8 @@ const BookDetails = () => {
 
   const { data, isLoading, error } = useSingleBookQuery(id);
   console.log(data);
+  console.log(isLoading);
+  console.log(error);
   return (
     <>
       <div className="flex max-w-7xl mx-auto items-center border-b border-gray-300">

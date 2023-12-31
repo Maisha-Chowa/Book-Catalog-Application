@@ -1,10 +1,9 @@
-import React, { RefObject, useRef } from "react";
-import { FormEvent, useState } from "react";
+import { useRef } from "react";
+import { FormEvent } from "react";
 import { Button } from "../components/ui/button";
 import { usePostNewBookMutation } from "../redux/features/Books/bookApi";
 import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/label";
-import { IBook } from "../types/globalTypes";
+
 import { useToast } from "../components/ui/use-toast";
 
 const AddNewBook = () => {
@@ -71,80 +70,59 @@ const AddNewBook = () => {
       <form onSubmit={handleSubmit}>
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="title">
-              Title
-            </Label>
             <Input id="title" placeholder="title" type="text" ref={titleRef} />
-            <Label className="sr-only" htmlFor="ISBN">
-              ISBN
-            </Label>
+
             <Input id="isbn" placeholder="isbn no" type="text" ref={isbnRef} />
-            <Label className="sr-only" htmlFor="page Count">
-              Number of Page
-            </Label>
+
             <Input
               id="pageCount"
               placeholder="Number of Page"
               type="text"
               ref={pageCountRef}
             />
-            <Label className="sr-only" htmlFor="publishedDate">
-              Published Date
-            </Label>
+
             <Input
               id="publishedDate"
               placeholder="Published Date"
               type="text"
               ref={publishedDateRef}
             />
-            <Label className="sr-only" htmlFor="thumbnailUrl">
-              Image URL
-            </Label>
+
             <Input
               id="thumbnailUrl"
               placeholder="Image URL"
               type="text"
               ref={thumbnailUrlRef}
             />
-            <Label className="sr-only" htmlFor="shortDescription">
-              Short Description
-            </Label>
+
             <Input
               id="shortDescription"
               placeholder="Short Description"
               type="text"
               ref={shortDescriptionRef}
             />
-            <Label className="sr-only" htmlFor="longDescription">
-              Long Description
-            </Label>
+
             <Input
               id="longDescription"
               placeholder="Long Description"
               type="text"
               ref={longDescriptionRef}
             />
-            <Label className="sr-only" htmlFor="status">
-              Status
-            </Label>
+
             <Input
               id="status"
               placeholder="Status"
               type="text"
               ref={statusRef}
             />
-            <Label className="sr-only" htmlFor="authors">
-              Authors
-            </Label>
+
             <Input
               id="authors"
               placeholder="authors"
               type="text"
               ref={authorsRef}
             />
-            <Label className="sr-only" htmlFor="genre">
-              Genre
-            </Label>
+
             <Input id="genre" placeholder="genre" type="text" ref={genreRef} />
           </div>
           <Button
