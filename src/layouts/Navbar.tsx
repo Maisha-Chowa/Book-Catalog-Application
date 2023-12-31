@@ -71,6 +71,7 @@ export default function Navbar() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuLabel>Account</DropdownMenuLabel>
+
                     <DropdownMenuSeparator />
                     {!user.email && (
                       <>
@@ -87,12 +88,17 @@ export default function Navbar() {
                       </>
                     )}
                     {user.email && (
-                      <DropdownMenuItem
-                        onClick={handleLogout}
-                        className="cursor-pointer"
-                      >
-                        Logout
-                      </DropdownMenuItem>
+                      <>
+                        <Link to="/add-new-book">
+                          <DropdownMenuLabel>Add new Book</DropdownMenuLabel>
+                        </Link>
+                        <DropdownMenuItem
+                          onClick={handleLogout}
+                          className="cursor-pointer"
+                        >
+                          Logout
+                        </DropdownMenuItem>
+                      </>
                     )}
                   </DropdownMenuContent>
                 </DropdownMenu>

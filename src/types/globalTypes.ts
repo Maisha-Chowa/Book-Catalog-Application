@@ -1,16 +1,13 @@
 export interface IBook {
   _id: number;
+  userid:string;
   title: string;
   isbn: string;
   pageCount: number;
-  price: number;
-  publishedDate: {
-    $date: string;
-  };
+  publishedDate: string;
   thumbnailUrl: string;
   shortDescription: string;
   longDescription: string;
-  rating: number;
   authors: string[];
   quantity?: number;
   genre: string[];
